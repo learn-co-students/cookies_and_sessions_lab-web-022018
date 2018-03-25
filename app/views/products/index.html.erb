@@ -1,0 +1,19 @@
+<h1>CARTS INDEX PAGE</h1>
+<!-- <form class="" action="/" method="post">
+  Enter product to add:<input type="text" name="product" id="product" value="">
+  <input type="submit" name="add to cart" id="add to cart" value="add to cart">
+</form> -->
+<h2>Items in cart:</h2>
+<%if @items%>
+  <%@items.each do |item|%>
+  <li><%=item%></li>
+  <%end%>
+<%end%>
+
+<h2>Add Items To cart:</h2>
+
+<%= form_tag("/", method: "post") do %>
+  <%= label_tag(:item, "product:") %>
+  <%= text_field_tag(:item) %>
+  <%= submit_tag("add to cart") %>
+<% end %>
